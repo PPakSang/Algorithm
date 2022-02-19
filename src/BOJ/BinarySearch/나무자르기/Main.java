@@ -1,4 +1,4 @@
-package BOJ.나무자르기;
+package BOJ.BinarySearch.나무자르기;
 
 import java.io.BufferedReader;
 import java.io.IOException;

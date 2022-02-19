@@ -1,4 +1,4 @@
-package BOJ.스타트링크;
+package BOJ.DFSBFS.스타트링크;
 
 import java.io.BufferedReader;
 import java.io.IOException;

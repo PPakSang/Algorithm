@@ -1,4 +1,4 @@
-package BOJ.N_Queen;
+package BOJ.BackTracking.N_Queen;
 
 
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package BOJ.색종이만들기;
+package BOJ.DivNConq.색종이만들기;
 
 import java.io.BufferedReader;
 import java.io.IOException;

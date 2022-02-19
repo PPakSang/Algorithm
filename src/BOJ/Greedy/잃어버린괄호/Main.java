@@ -1,4 +1,4 @@
-package BOJ.잃어버린괄호;
+package BOJ.Greedy.잃어버린괄호;
 
 import java.util.*;
 import java.io.*;

@@ -1,8 +1,7 @@
-package BOJ.소문난칠공주;
+package BOJ.BackTracking.소문난칠공주;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.*;
 

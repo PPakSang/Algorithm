@@ -1,4 +1,4 @@
-package BOJ.부분수열의합;
+package BOJ.BackTracking.부분수열의합;
 
 import java.io.BufferedReader;
 import java.io.IOException;

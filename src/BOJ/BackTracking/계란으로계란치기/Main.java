@@ -1,4 +1,4 @@
-package BOJ.계란으로계란치기;
+package BOJ.BackTracking.계란으로계란치기;
 
 import java.io.*;
 import java.util.*;

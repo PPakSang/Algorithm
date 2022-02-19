@@ -1,9 +1,7 @@
-package BOJ.구간합구하기;
+package BOJ.SegmentTree.구간합구하기;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;

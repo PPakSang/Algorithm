@@ -1,4 +1,4 @@
-package BOJ.박스채우기;
+package BOJ.DivNConq.박스채우기;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,9 +1,8 @@
-package BOJ.촌수구하기;
+package BOJ.DFSBFS.촌수구하기;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.spi.BreakIteratorProvider;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
