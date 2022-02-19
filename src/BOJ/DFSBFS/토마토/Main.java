@@ -1,4 +1,4 @@
-package BOJ.토마토;
+package BOJ.DFSBFS.토마토;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,7 +21,7 @@ class Dir {
 }
 
 
-public class Main {
+public class    Main {
     static int[][][] tomato;
     static int[] dir = new int[]{1,-1};
     static int m;
