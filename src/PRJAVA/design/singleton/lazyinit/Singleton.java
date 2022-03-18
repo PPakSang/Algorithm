@@ -1,4 +1,4 @@
-package PRJAVA.singleton.lazyinit;
+package PRJAVA.design.singleton.lazyinit;
 
 public class Singleton {
 

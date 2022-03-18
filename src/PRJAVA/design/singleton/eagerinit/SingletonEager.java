@@ -1,4 +1,4 @@
-package PRJAVA.singleton.eagerinit;
+package PRJAVA.design.singleton.eagerinit;
 
 public class SingletonEager {
 

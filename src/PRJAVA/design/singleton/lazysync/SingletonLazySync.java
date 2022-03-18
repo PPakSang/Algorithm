@@ -1,4 +1,4 @@
-package PRJAVA.singleton.lazysync;
+package PRJAVA.design.singleton.lazysync;
 
 import java.util.Objects;
 

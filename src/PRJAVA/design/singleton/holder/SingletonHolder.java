@@ -1,6 +1,4 @@
-package PRJAVA.singleton.holder;
-
-import PRJAVA.singleton.lazyinit.Singleton;
+package PRJAVA.design.singleton.holder;
 
 public class SingletonHolder {
 
