@@ -17,7 +17,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
 
-        result = new Queue[n];
+        result = new LinkedList[n];
         arr = new int[n];
         dp = new int[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -25,41 +25,59 @@ public class Main {
             int nextNum = Integer.parseInt(st.nextToken());
             arr[i] = nextNum;
             result[i] = new LinkedList<>();
+            dp[i] = 1;
         });
 
 
-        for (int i = 0; i < n; i++) {
-            int max = 1;
-            int temp = i;
+        int max = 1;
+        for (int i = 1; i < n; i++) {
+//            int max = 1;
+//            int temp = i;
             for (int j = i-1; j >= 0; j--) {
 
                 if (arr[j] < arr[i]) {
-                    if ((dp[j] + 1) > max) {
-                        max = dp[j] + 1;
-                        temp = j; //최대 부분수열을 만드는 index
-                    }
+//                    if ((dp[j] + 1) > max) {
+//                        max = dp[j] + 1;
+//                        temp = j; //최대 부분수열을 만드는 index
+//                    }
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                    max = Math.max(dp[i], max);
                 }
             }
             //다 돌고나오면 앞에 붙일 index 인 temp 와 그 때의 최대 부분수열 길이 max 가 나옴
-            dp[i] = max;
-            Queue<Integer> addQ = new LinkedList<>(result[temp]);
-            result[i] = addQ;
-            result[i].add(arr[i]);
+//            dp[i] = max;
+//            Queue<Integer> addQ = new LinkedList<>(result[temp]);
+//            result[i] = addQ;
+//            result[i].add(arr[i]);
         }
 
-        int max = dp[0];
-        int index = 0;
-        for (int i = 1; i < n; i++) {
+//        int max = dp[0];
+//        int index = 0;
+//        for (int i = 1; i < n; i++) {
+//
+//            if (dp[i] > max) {
+//                max = dp[i];
+//                index = i;
+//            }
+//        }
+//
+//        System.out.println(max);
+//        for (int i : result[index]) {
+//            System.out.print(i + " ");
+//        }
 
-            if (dp[i] > max) {
-                max = dp[i];
-                index = i;
+        System.out.println(max);
+
+        Stack<Integer> stack = new Stack<>();
+        for (int i = n-1; i >= 0; i--) {
+            if (dp[i] == max) {
+                stack.push(arr[i]);
+                max--;
             }
         }
 
-        System.out.println(max);
-        for (int i : result[index]) {
-            System.out.print(i + " ");
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop() + " ");
         }
     }
 }
