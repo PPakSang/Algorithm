@@ -1,8 +1,6 @@
 package BOJ.DivNConq.가장가까운두점.다른풀이;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 class Point {
@@ -23,6 +21,7 @@ public class Main {
             return o1.x - o2.x;
         }
     };
+
     static Comparator<Point> compareY = new Comparator<Point>() {
         @Override
         public int compare(Point o1, Point o2) {
@@ -34,7 +33,9 @@ public class Main {
     };
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String filePath = Main.class.getResource("").getPath();
+        BufferedReader br = new BufferedReader(new FileReader(filePath + "input.txt"));
+        PrintWriter pw = new PrintWriter(new FileWriter(filePath + "output.txt"));
 
         n = Integer.parseInt(br.readLine());
         points = new Point[n];
@@ -84,8 +85,10 @@ public class Main {
             set.add(target);
         }
 
-        System.out.println(min);
+        pw.printf("%d\n", min);
 
+        br.close();
+        pw.close();
     }
 
     static int dist(Point o1, Point o2) {
