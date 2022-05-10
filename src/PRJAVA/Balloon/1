@@ -1,0 +1,57 @@
+import java.util.*;
+// RT
+// CF
+// JM
+// AN
+
+
+class Solution {
+    Map<Character, Integer> type = new HashMap<>();
+    public String solution(String[] survey, int[] choices) {
+        String answer = "";
+        type.put('R', 0);
+        type.put('T', 0);
+        type.put('C', 0);
+        type.put('F', 0);
+        type.put('J', 0);
+        type.put('M', 0);
+        type.put('A', 0);
+        type.put('N', 0);
+
+        int N = survey.length;
+
+        for (int i = 0; i < N; i++) {
+            char type1 = survey[i].charAt(0);
+            char type2 = survey[i].charAt(1);
+
+            if (choices[i] <= 3) {
+                type.put(type1, type.get(type1) + 4-choices[i]);
+            } else if (choices[i] >= 5) {
+                type.put(type2, type.get(type2) + choices[i]-4);
+            }
+        }
+
+
+        answer = solve();
+
+        return answer;
+    }
+
+    String solve() {
+        char type1 = check('R', 'T');
+        char type2 = check('C', 'F');
+        char type3 = check('J', 'M');
+        char type4 = check('A', 'N');
+
+        return ""+ type1 + type2 + type3 + type4;
+    }
+
+    char check(char c1, char c2) {
+        int s1 = type.get(c1);
+        int s2 = type.get(c2);
+
+        if (s1 > s2) return c1;
+        else if (s1 < s2) return c2;
+        else return c1 < c2 ? c1 : c2;
+    }
+}
