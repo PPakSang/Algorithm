@@ -73,7 +73,8 @@ public class Balloon {
 
         circles.sort(new Comparator<Circle>() {
             public int compare(Circle c1, Circle c2) {
-                return (int)(c1.e - c2.e);
+                if (c1.e == c2.e) return 0;
+                return (c1.e - c2.e) > 0 ? 1 : -1;
             }
         });
 
@@ -82,45 +83,15 @@ public class Balloon {
 
         for (int i = 0; i < circles.size(); i++) {
             Circle c = circles.get(i);
-            double start = c.s;
 
             List<Angle> angles = new ArrayList<>();
-            for (int j = i+1; j < circles.size(); j++) {
+            for (int j = i; j < circles.size(); j++) {
                 Circle tc = circles.get(j);
-                angles.add(new Angle(adj(tc.s-start), adj(tc.e-start)));
+                angles.add(new Angle(adj(tc.s-c.e), adj(tc.e-c.e)));
             }
             for (int j = 0; j < i; j++) {
                 Circle tc = circles.get(j);
-                angles.add(new Angle(adj(tc.s-start), adj(tc.e-start)));
-            }
-
-
-
-            List<Angle> remainAngles = new ArrayList<>();
-
-            for (Angle a : angles) {
-                if (a.s < a.e) {
-                    remainAngles.add(a);
-                }
-            }
-
-            int idx = 0;
-            double cur = remainAngles.get(0).e;
-
-            for (int j = 1; j < remainAngles.size(); j++) {
-                if (remainAngles.get(j).e < cur) {
-                    idx = j;
-                    cur = remainAngles.get(j).e;
-                }
-            }
-
-            angles = new ArrayList<>();
-
-            for (int j = idx; j < remainAngles.size(); j++) {
-                angles.add(remainAngles.get(j));
-            }
-            for (int j = 0; j < idx; j++) {
-                angles.add(remainAngles.get(j));
+                angles.add(new Angle(adj(tc.s-c.e), adj(tc.e-c.e)));
             }
 
             int cnt = countLays(angles);
@@ -136,12 +107,13 @@ public class Balloon {
         double last = -1;
 
         for (Angle a : angles) {
-            if (a.s > last) {
-                last = a.e;
-                cnt++;
+            if (a.e > a.s) {
+                if (a.s > last) {
+                    last = a.e;
+                    cnt++;
+                }
             }
         }
-
         return cnt+1;
     }
 
